@@ -18,7 +18,7 @@ int main(int argc, char **argv)
     {
       for (int i=0; i<12; i++)
 	{
-	  cout << "Tuntrum-ing !!!" << endl;
+	  cout << "Tantrum-ing !!!" << endl;
 	  sleep(1);
 	}
     }
