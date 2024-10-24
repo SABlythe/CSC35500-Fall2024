@@ -64,14 +64,15 @@ int main(int argc, char *argv[])
 
   while(true)
     {
+      
       // wait
       struct sembuf command[1];
       command[0].sem_num = 0;
       command[0].sem_op  =-1;
       command[0].sem_flg = 0;
       semop(sem_id, command, 1);
-
-      //cout << "ABOUT TO GETINTO MY CRitical section .... " << endl;
+      
+      cout << "ABOUT TO GETINTO MY CRitical section .... " << endl;
       
       // begin critical section
       sharedArray[0] = 1;
@@ -80,11 +81,13 @@ int main(int argc, char *argv[])
 	cout << "Trouble, read value is " << sharedArray[0] << " but should be 10 " << endl;
       // end critical section
 
+      
       //signal
       command[0].sem_num = 0;
       command[0].sem_op  =+1;
       command[0].sem_flg = 0;
       semop(sem_id, command, 1);
+      
     }
   
   return 0;
